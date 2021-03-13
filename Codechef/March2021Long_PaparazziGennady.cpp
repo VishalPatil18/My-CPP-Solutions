@@ -21,11 +21,11 @@ int min(int x, int y) { return (x < y) ? x : y; }
 vector<int> ans;
 
 void SOLVE(){
-    int n, temp_ans1 = -1, temp_ans2 = -1;
+    int n, temp_ans1 = 1, temp_ans2 = 1;
 
     cin >> n;
 
-    int arr[n];
+    long long int arr[n];
 
     for(int i=0; i<n; cin >> arr[i++]);
 
@@ -33,7 +33,8 @@ void SOLVE(){
         // deb(i);
         int j = i+1, count = 1;
         while(j < n) {
-            if(arr[j] > arr[i]) break;
+            if(arr[j] > arr[i] + 1) break;
+            else if(arr[j] == arr[i] + 1) count++;
             else count++;
             // deb2(count, j);
             j++;
@@ -46,7 +47,8 @@ void SOLVE(){
         // deb(i);
         int j = i-1, count = 1;
         while(j >= 0) {
-            if(arr[j] > arr[i]) break;
+            if(arr[j] > arr[i] - 1) break;
+            else if(arr[j] == arr[i] + 1) count++;
             else count++;
             // deb2(count, j);
             j--;
