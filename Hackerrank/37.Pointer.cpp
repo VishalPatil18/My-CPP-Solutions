@@ -1,8 +1,23 @@
 /*
-    https://www.hackerrank.com/challenges/time-conversion/problem
+    https://www.hackerrank.com/challenges/c-tutorial-pointer/problem
 */
 
-string kangaroo(int x1, int v1, int x2, int v2) {
-    if((x2 - x1)%(v1 - v2) == 0) return "YES";
-    else return "NO";
+#include <stdio.h>
+#include <math.h>
+
+void update(int *a,int *b) {
+    *a = *a + *b;
+    *b = abs(*a - 2*(*b)); 
 }
+
+int main() {
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
+    return 0;
+}
+
