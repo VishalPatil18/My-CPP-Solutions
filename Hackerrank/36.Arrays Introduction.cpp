@@ -1,8 +1,19 @@
 /*
-    https://www.hackerrank.com/challenges/time-conversion/problem
+    https://www.hackerrank.com/challenges/arrays-introduction/problem
 */
 
-string kangaroo(int x1, int v1, int x2, int v2) {
-    if((x2 - x1)%(v1 - v2) == 0) return "YES";
-    else return "NO";
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i = 0 ; i < n ; i++){
+        cin >> arr[i];
+    }
+    for(int i = n-1 ; i >= 0 ; i--){
+        cout << arr[i] << " ";
+    }
+    return 0;
 }
