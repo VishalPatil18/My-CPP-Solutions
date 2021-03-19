@@ -1,23 +1,26 @@
 /*
-    https://www.hackerrank.com/challenges/c-tutorial-pointer/problem
+    https://www.hackerrank.com/challenges/c-tutorial-functions/problem
 */
 
-#include <stdio.h>
-#include <math.h>
+#include <iostream>
+using namespace std;
 
-void update(int *a,int *b) {
-    *a = *a + *b;
-    *b = abs(*a - 2*(*b)); 
+int max_of_four(int a, int b, int c, int d){
+    int arr[4] = {a , b , c , d};
+    int max = arr[0];
+    for(int i = 1 ; i < 4 ; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
 }
 
-int main() {
-    int a, b;
-    int *pa = &a, *pb = &b;
+int main(){
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    int ans = max_of_four(a, b, c, d);
+    printf("%d", ans);
     
-    scanf("%d %d", &a, &b);
-    update(pa, pb);
-    printf("%d\n%d", a, b);
-
     return 0;
 }
-
