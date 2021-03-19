@@ -1,23 +1,56 @@
 /*
-    https://www.hackerrank.com/challenges/c-tutorial-pointer/problem
+    https://www.hackerrank.com/challenges/c-tutorial-for-loop/problem
 */
 
-#include <stdio.h>
-#include <math.h>
+#include <iostream>
+using namespace std;
 
-void update(int *a,int *b) {
-    *a = *a + *b;
-    *b = abs(*a - 2*(*b)); 
-}
-
-int main() {
-    int a, b;
-    int *pa = &a, *pb = &b;
-    
-    scanf("%d %d", &a, &b);
-    update(pa, pb);
-    printf("%d\n%d", a, b);
-
+int main(){
+    int m, n;
+    cin >> m >> n;
+    int arr[n-m+1];
+    for(int i=0 ; i <= (n-m) ; i++){
+        arr[i] = m+i;
+        }
+    for(int i=0 ; i <= (n-m) ; i++){
+        if( arr[i] <= 9){
+            if(arr[i] == 1){
+                cout<<"one"<<endl;
+                }
+            else if(arr[i] == 2){
+                cout<<"two"<<endl;
+                }
+            else if(arr[i] == 3){
+                cout<<"three"<<endl;
+                }
+            else if(arr[i] == 4){
+                cout<<"four"<<endl;
+                }
+            else if(arr[i] == 5){
+                cout<<"five"<<endl;
+                }
+            else if(arr[i] == 6){
+                cout<<"six"<<endl;
+                }
+            else if(arr[i] == 7){
+                cout<<"seven"<<endl;
+                }
+            else if(arr[i] == 8){
+                cout<<"eight"<<endl;
+                }
+            else if(arr[i] == 9){
+                cout<<"nine"<<endl;
+                }
+            }
+        else if(arr[i] > 9){
+            if(arr[i] % 2 == 0){
+                cout<<"even"<<endl;
+            }
+            else{
+                cout<<"odd"<<endl;
+            }
+        }
+    }
     return 0;
 }
 
