@@ -1,26 +1,22 @@
 /*
-    https://www.hackerrank.com/challenges/c-tutorial-functions/problem
+    https://www.hackerrank.com/challenges/c-tutorial-strings/problem
 */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-int max_of_four(int a, int b, int c, int d){
-    int arr[4] = {a , b , c , d};
-    int max = arr[0];
-    for(int i = 1 ; i < 4 ; i++){
-        if(arr[i] > max){
-            max = arr[i];
-        }
-    }
-    return max;
-}
+int main() {
+    string a, b;
+    char temp;
+    cin >> a >> b;
+    cout << a.size() << " " << b.size() << endl;
+    cout << a + b << endl;
+    temp = a[0];
+    a[0] = b[0];
+    b[0] = temp;
+    cout << a << " " << b << endl;
 
-int main(){
-    int a, b, c, d;
-    scanf("%d %d %d %d", &a, &b, &c, &d);
-    int ans = max_of_four(a, b, c, d);
-    printf("%d", ans);
-    
     return 0;
 }
+
