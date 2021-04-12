@@ -1,36 +1,59 @@
 /*
-    https://www.codechef.com/APRIL21C/problems/SDICE
+    https://www.codechef.com/APRIL21C/problems/KAVGMAT
 */
 
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-int solve(long long X) {
-    if (X == 1) return 20;
-    else if (X == 2) return 36;
-    else if (X == 3) return 51;
-    else if (X == 4) return 60;
-    else if (X == 5) return 76;
-    else if (X == 6) return 88;
-    else if (X == 7) return 99;
-    else if (X == 8) return 104;
-    else return 0;
-}
-int main()
-{
-    int t;
-    cin >> t;
-    while(t--){
-        long long N, ans, levels, extras;
-        cin >> N;
-        if (N <= 8) ans = solve(N);
-        else {
-            levels = N / 4;
-            extras = N - (levels - 1) * 4;
-            ans = (levels - 1) * 11 * 4 + solve(extras);
+#define all_test_cases int t; scanf("%d", &t); while (t--)
+
+long long solve() {
+    long long n, m, k;
+    cin >> n >> m >> k;
+    
+    double a[n+1][m+1];
+    memset(a, 0, sizeof(a));
+    
+    long long ans=0;
+    for(long long i=1; i<=n; i++) {
+        for(long long j=1;j<=m;j++) cin >> a[i][j];
+    }
+    
+    for(long long i=0; i<=n; i++) {
+        double sum=0;
+        for(long long j=0; j<=m; j++) {
+            sum += a[i][j];
+            a[i][j] = sum;
         }
-        cout << ans << endl;
+    }
+    
+    for(long long j=0; j<=m; j++) {
+        double sum=0;
+        for(long long i=0; i<=n; i++) {
+            sum += a[i][j];
+            a[i][j] = sum;
+        }
+    }
+    
+    long long xc = (m<n) ? m : n;
+    
+    for(long long l=1; l<=xc; l++) {
+        for(long long i=l; i<=n; i++) {
+            for(long long j=l; j<=m; j++) {
+                double f = a[i][j]+a[i-l][j-l]-a[i-l][j]-a[i][j-l];
+                f = f/(l*l);
+                
+                if(f>=k) ans++;
+            }
+        }
     }
 
+    return ans;
+}
+
+int main()
+{
+    all_test_cases cout << solve() << endl;
+    
     return 0;
 }
