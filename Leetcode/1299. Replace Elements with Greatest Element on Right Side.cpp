@@ -19,3 +19,20 @@ vector<int> replaceElements(vector<int>& A, int mx = -1) {
         mx = max(mx, exchange(A[i], mx));
     return A;
 }
+
+
+// Using Stack
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        vector<int> ans(arr.size());
+        stack<int> stk;
+        stk.push(arr[arr.size()-1]);
+        ans[arr.size()-1] = -1;
+        for(int i=arr.size()-2; i>=0; --i){
+            ans[i] = stk.top();
+            if(stk.top() < arr[i]) stk.push(arr[i]);
+        }
+        return ans;
+    }
+};
